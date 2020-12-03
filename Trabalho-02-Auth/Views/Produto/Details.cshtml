@@ -1,0 +1,55 @@
+﻿@model Trabalho_02_Auth.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Produto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+   
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorProduto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusProduto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusProduto)
+        </dd>
+
+    </dl>
+</div>
+<a class="btn btn-primary btn-icon-split" href="~/Fornecedor/Index">
+    <span class="icon text-white">
+        <i class="fas fa-arrow-circle-left"></i>
+    </span>
+    <span class="text text-white">Voltar</span>
+</a>

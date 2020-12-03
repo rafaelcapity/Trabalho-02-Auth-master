@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Trabalho_02_Auth.Models.Produto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ string nivel = Session["Nivel"].ToString(); }
+
+<h2>Listar</h2>
+
+<a class="btn btn-primary btn-icon-split" href="~/Produto/Create">
+    <span class="icon text-white">
+        <i class="fas fa-plus-circle"></i>
+    </span>
+    <span class="text text-white">Encriptar</span>
+</a>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Fornecedor.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CorProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusProduto)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fornecedor.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusProduto)
+            </td>
+
+            @if (nivel.ToString() == "Administrador")
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+
+                </td>
+            }
+            else
+            {
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+            }
+
+
+        </tr>
+    }
+
+</table>
